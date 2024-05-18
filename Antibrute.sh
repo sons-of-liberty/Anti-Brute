@@ -2,7 +2,7 @@
 read -p "Enter a new SSH port number: " new_port
 if [[ "$new_port" =~ ^[0-9]+$ ]]; then
     # Update the SSH configuration file
-    sed -i "s/^#*Port .*/Port $new_ssh_port/" /etc/ssh/sshd_config
+    sed -i "s/^#*Port .*/Port $new_port/" /etc/ssh/sshd_config
     sed -i 's/^#*PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
     systemctl restart ssh
     echo "SSH port has been updated to $new_port."
